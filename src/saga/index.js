@@ -1,12 +1,11 @@
 import { all, put, takeLatest, fork } from 'redux-saga/effects';
-import { GETEXCELDATA } from 'modules/excel';
+import { GETEXCELDATA_SUC, GETEXCELDATA } from 'modules/excel';
 
 export function* excelDataWatch() {
   yield takeLatest(GETEXCELDATA, excelData)
 }
 export function* excelData(req) {
-  const data = req.payload
-  yield put({ type: GETEXCELDATA, payload: data })
+  yield put({ type: GETEXCELDATA_SUC, payload: req.payload })
 }
 
 export function* rootSaga() {
